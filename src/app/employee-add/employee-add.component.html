@@ -1,0 +1,90 @@
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a href="empadd" class="nav-link" routerLinkActive="active">Add Employee Salary</a>
+        </li>
+        <li class="nav-item">
+          <a href="emplist" class="nav-link" routerLinkActive="active">Employee List</a>
+      </li>
+
+      <li class="nav-item">
+        <a href="login" class="nav-link" routerLinkActive="active">Logout</a>
+    </li>
+
+    </ul>
+    </nav>
+   
+
+    <div class="card">
+        <div class="card-body">
+          <form [formGroup]="employeeForm" novalidate (ngSubmit)="addemp()">
+           
+      
+            <div [ngClass]="form-group">
+              <label class="col-md-4">Employee Name</label>
+              <input type="text" class="form-control" 
+                formControlName="employeeName" 
+                #assetName />
+            </div>
+            
+            <div *ngIf="employeeForm.controls['employeeName'].invalid && (employeeForm.controls['employeeName'].dirty || employeeForm.controls['employeeName'].touched)" class="alert alert-danger">
+              <div *ngIf="employeeForm.controls['employeeName'].errors.required">
+                Employee Name is required.
+              </div>
+            </div>
+      
+            <br>
+            <div [ngClass]="form-group">
+                <label class="col-md-4">Basic Salary</label>
+                <input type="text" class="form-control" 
+                  formControlName="basicSalary" 
+                  #assetName />
+              </div>
+              
+              <div *ngIf="employeeForm.controls['basicSalary'].invalid && (employeeForm.controls['basicSalary'].dirty || employeeForm.controls['basicSalary'].touched)" class="alert alert-danger">
+                <div *ngIf="employeeForm.controls['basicSalary'].errors.required">
+                    Basic Salary is required.
+                </div>
+              </div>
+        
+              <br>
+
+              <div [ngClass]="form-group">
+                <label class="col-md-4">HRA</label>
+                <input type="text" class="form-control" 
+                  formControlName="hra" 
+                  #hra />
+              </div>
+              
+              <div *ngIf="employeeForm.controls['hra'].invalid && (employeeForm.controls['hra'].dirty || employeeForm.controls['hra'].touched)" class="alert alert-danger">
+                <div *ngIf="employeeForm.controls['hra'].errors.required">
+                    HRA is required.
+                </div>
+              </div>
+        
+              <br>
+
+              <div [ngClass]="form-group">
+                <label class="col-md-4">Travel Allowance</label>
+                <input type="text" class="form-control" 
+                  formControlName="travelallowance" 
+                  #travelallowance />
+              </div>
+              
+              <div *ngIf="employeeForm.controls['travelallowance'].invalid && (employeeForm.controls['travelallowance'].dirty || employeeForm.controls['travelallowance'].touched)" class="alert alert-danger">
+                <div *ngIf="employeeForm.controls['travelallowance'].errors.required">
+                    Travel Allowance is required.
+                </div>
+              </div>
+        
+              <br>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="employeeForm.pristine || employeeForm.invalid">
+                  Add Salary Details
+                </button>
+            </div>
+
+        </form>
+    </div>
+</div>
